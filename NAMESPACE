@@ -1,0 +1,53 @@
+export(
+
+SPIA, DEGraph, Clipper, PRS, PWEA, TAPPA, TopologyGSA,
+res, topo.sig, degtable,
+AdjacencyMatrix2pathway,
+graphNEL2pathway,
+estimateCF,
+reduceGraph,
+convertIdentifiersByVector,
+KEGG2pathway,
+makeDefaultEdgeData,
+prepareTIF, collectWeightsPRS, collectWeightsSPIA,
+preparePathways
+)
+
+useDynLib(ToPASeq)
+
+exportClasses(pathway)
+exportMethods(nodes, edges)
+exportMethods(intersection, join, union, subGraph, clearNode, removeEdge, removeNode, addEdge, addNode, changeDirection, changeInteraction,"nodes<-")
+
+exportMethods(degree, numNoEdges, mostEdges, acc, connComp, edges, isAdjacent, isDirected, isConnected, edgemode, numEdges, numNodes, edgeNames)
+
+
+S3method(print, topResult)
+S3method(topo.sig, topResult)
+S3method(degtable, topResult)
+S3method(res, topResult)
+S3method(summary, topResult)
+S3method(plot,topResult)
+
+import(graphite, gRbase, graph, locfit, methods, Rgraphviz)
+importFrom(DESeq2, DESeqDataSetFromMatrix, DESeq, results, estimateSizeFactors, estimateDispersions, nbinomWaldTest, rlogTransformation, varianceStabilizingTransformation)
+importFrom(GenomicRanges, assay, colData, "colData<-")
+importFrom(KEGGgraph, parseKGML)
+
+importFrom(R.utils, reassignInPackage)
+importFrom(edgeR,DGEList, calcNormFactors)
+
+importFrom(parallel, detectCores, makeCluster, clusterExport, parSapply, stopCluster)
+importClassesFrom(Biobase, ExpressionSet)
+importMethodsFrom(Biobase, exprs, pData)
+
+importFrom(DESeq, newCountDataSet, estimateSizeFactors, estimateDispersions)
+importFrom(fields, image.plot)
+importFrom(TeachingDemos, shadowtext)
+importFrom(limma,  lmFit, makeContrasts, contrasts.fit, eBayes, decideTests, topTable, voom) 
+importMethodsFrom(graph, edgeData, edgeDataDefaults)
+
+
+importFrom(qpgraph,qpIPF)
+importFrom(RBGL,johnson.all.pairs.sp)
+importFrom(clipper, easyClip, pathQ, cliqueMeanTest, cliqueVarianceTest)
